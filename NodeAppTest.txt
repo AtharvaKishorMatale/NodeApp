@@ -1,0 +1,49 @@
+Started by upstream project "NodeAppBuild" build number 5
+originally caused by:
+ Started by GitHub push by AtharvaKishorMatale
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/NodeappTest
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/NodeappTest/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/AtharvaKishorMatale/NodeApp.git # timeout=10
+Fetching upstream changes from https://github.com/AtharvaKishorMatale/NodeApp.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/AtharvaKishorMatale/NodeApp.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 04919791662e394b6f62ad20b80456a2fc839aa9 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 04919791662e394b6f62ad20b80456a2fc839aa9 # timeout=10
+Commit message: "deploytestcommit"
+ > git rev-list --no-walk cf07ad133aec6fca903ff7b35df528c2fd884733 # timeout=10
+[NodeappTest] $ /bin/sh -xe /tmp/jenkins15031785602261085692.sh
++ npm install
+
+up to date, audited 201 packages in 1s
+
+36 packages are looking for funding
+  run `npm fund` for details
+
+34 vulnerabilities (2 low, 5 moderate, 22 high, 5 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
++ ./node_modules/mocha/bin/_mocha --exit ./test/test.js
+Server is running on http://localhost:5000
+
+
+  GET /nonexistentpage
+    ✔ should respond with 404 Not Found
+
+
+  1 passing (21ms)
+
+Triggering a new build of NodeAppDeploy
+Finished: SUCCESS

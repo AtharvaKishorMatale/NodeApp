@@ -1,0 +1,73 @@
+Started by user AKM
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/NodeAppDeploy
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/NodeAppDeploy/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/AtharvaKishorMatale/NodeApp.git # timeout=10
+Fetching upstream changes from https://github.com/AtharvaKishorMatale/NodeApp.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/AtharvaKishorMatale/NodeApp.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 04919791662e394b6f62ad20b80456a2fc839aa9 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 04919791662e394b6f62ad20b80456a2fc839aa9 # timeout=10
+Commit message: "deploytestcommit"
+ > git rev-list --no-walk 04919791662e394b6f62ad20b80456a2fc839aa9 # timeout=10
+[SSH] script:
+
+cd /home/ubuntu/nodeappnew
+git pull https://github.com/AtharvaKishorMatale/NodeApp.git
+npm install
+npm run
+sudo npm install -g pm2
+pm2 start index.js
+
+[SSH] executing...
+From https://github.com/AtharvaKishorMatale/NodeApp
+ * branch            HEAD       -> FETCH_HEAD
+Already up to date.
+
+up to date, audited 201 packages in 2s
+
+36 packages are looking for funding
+  run `npm fund` for details
+
+34 vulnerabilities (2 low, 5 moderate, 22 high, 5 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+Lifecycle scripts included in node-app@0.0.1:
+  start
+    node index.js
+  test
+    mocha
+
+
+changed 134 packages in 7s
+
+13 packages are looking for funding
+  run `npm fund` for details
+[PM2] Applying action restartProcessId on app [index](ids: [ 0, 2 ])
+[PM2] [index](0) ✓
+[PM2] [index](2) ✓
+[PM2] Process successfully started
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ <app_name>    │ default     │ 0.0.1   │ fork    │ 0        │ 0      │ 15   │ errored   │ 0%       │ 0b       │ ubuntu   │ disabled │
+│ 0  │ index         │ default     │ 0.0.1   │ fork    │ 10288    │ 0s     │ 5    │ online    │ 0%       │ 13.6mb   │ ubuntu   │ disabled │
+│ 2  │ index         │ default     │ 0.0.1   │ fork    │ 10289    │ 0s     │ 30   │ online    │ 0%       │ 12.1mb   │ ubuntu   │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+
+[SSH] completed
+[SSH] exit-status: 0
+
+Finished: SUCCESS
